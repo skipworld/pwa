@@ -1,12 +1,13 @@
-/*if('serviceWorker' in navigator){
-    console.log("Se puede usar el serviceWorker");
-}else{
-    console.log("Vamos capo....Instala algo decente por favor! ");
-}
-*/
-if(navigator.serviceWorker) {
-  
+
+// if ( 'serviceWorker' in navigator ) {
+//     console.log('Podemos usarlo!');
+// }
+
+// confirmar si podemos usar el SW
+if ( navigator.serviceWorker ) {
+
     navigator.serviceWorker.register('/sw.js');
-}else{
-    console.log("Vamos capo....Instala algo decente por favor! ");
+
+
 }
+

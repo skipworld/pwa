@@ -1,25 +1,24 @@
+ 
+
+
+
 self.addEventListener('fetch', event => {
 
-    /*if(event.request.url.includes('style.css')){
-        event.respondWith( null ); 
-    }else{
 
-   event.respondWith( fetch(event.request) );
-    }*/
-
-    if(event.request.url.includes('style.css')){
-        let respuesta = new Response(`
-            body {
-                background-color: red !important;
-                color: pink;
-            }
+    const resp = fetch( event.request )
+        .then( resp => {
             
-        `, {
-            headers: {
-                'Content-Type' : 'text/css'
-            }
+            return resp.ok ? resp : fetch('img/main.jpg');
+            
         });
-        event.respondWith(respuesta);
-       
-    }
-})
+
+    
+    event.respondWith(resp);
+
+
+
+});
+
+
+
+
